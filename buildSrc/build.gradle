@@ -1,0 +1,10 @@
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.jsoup:jsoup:1.11.3'
+	implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+	implementation 'org.apache.commons:commons-lang3:3.11'
+	implementation 'com.google.code.gson:gson:2.8.6'
+}

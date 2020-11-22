@@ -1,0 +1,49 @@
+import automation.HacGroovyTask
+import groovy.io.FileType
+
+ant.'ant.home' = ant_home
+ant.properties["ant.version"] = ant_home
+
+task antAll(group: 'build', description: 'ant all') {
+	doFirst {
+		ant.ant antfile: "build.xml", target: "all", dir: platform_home
+	}
+}
+
+task antClean(group: 'build', description: 'ant clean') {
+	doFirst {
+		ant.ant antfile: "build.xml", target: "clean", dir: platform_home
+	}
+}
+
+task antCleanAll(group: 'build', description: 'ant clean all') {
+	doFirst {
+		ant.ant antfile: "build.xml", target: "clean", dir: platform_home
+	}
+	doLast {
+		ant.ant antfile: "build.xml", target: "all", dir: platform_home
+	}
+}
+
+// ./gradlew -DgroovyScript=index-update-b2b.groovy runScript
+task runScript(group: 'misc', type: HacGroovyTask, description: 'Run a groovy script') {
+	script System.getProperty("groovyScript");
+	settings hac_settings
+}
+
+// Add all files in the scripts directory as a task
+File scripts = new File(project.rootDir.toString() + "/scripts")
+scripts.eachFileRecurse FileType.FILES,  { file ->
+	def name = file.name.take(file.name.lastIndexOf('.'))
+
+	tasks.create(name: "$name", group: file.parentFile.name, type: HacGroovyTask) {
+		script "$file"
+		settings hac_settings
+	}
+}
+
+// https://blog.mrhaki.com/2015/10/gradle-goodness-apply-external-script.html
+File extTasks = new File(project.rootDir.toString() + "/tasks")
+extTasks.eachFileRecurse FileType.FILES,  { file ->
+	apply from: "$file"
+}

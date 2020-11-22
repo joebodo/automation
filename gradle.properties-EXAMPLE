@@ -1,0 +1,5 @@
+ant_home=/Users/joebodo/.p2/pool/plugins/org.apache.ant_1.10.8.v20200515-1239
+platform_home=/Users/joebodo/work/workspace-southwire/southwire/hybris/bin/platform
+#org.gradle.java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home
+storefront_home=/Users/joebodo/work/workspace-southwire/southwire/hybris/bin/custom/southwire/southwireb2cstorefront
+hac_settings=https://localhost:9002/southwire/hac/;admin;nimda
