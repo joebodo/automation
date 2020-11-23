@@ -9,3 +9,7 @@ Create custom tasks in the tasks folder.
 <img src="https://github.com/joebodo/automation/raw/main/.assets/tasks.jpg?raw=true" width="313" height="390">
 <img src="https://github.com/joebodo/automation/raw/main/.assets/scripts.jpg?raw=true" width="313" height="390">
 </p>
+
+Hac customizations
+
+<img src="https://github.com/joebodo/automation/raw/main/.assets/hac.jpg?raw=true" width="530" height="316">
