@@ -15,13 +15,14 @@ def toggle(logClass) {
 
 	if (loggerConfig == null) {
 
+		AppenderRef[] refs = [];
 		LoggerConfig createdLoggerConfig = LoggerConfig.createLogger(
-			'true', OFF, logClass, 'true', null, null, loggerCfg, null)
+			'true', OFF, logClass, 'true', refs, null, loggerCfg, null)
 
 		loggerCfg.addLogger(logClass, createdLoggerConfig)
 	}
 
-	def logger = loggerCfg.loggers.get(logClass);
+	def logger = loggerCfg.loggers.get(logClass)
 	logger.level = logger.level == OFF ? DEBUG : OFF
 
 	println 'level = ' + logger.level
