@@ -1113,4 +1113,6 @@ textarea {
 	box-sizing: border-box;
 	margin-right: 0;
 }
-
+#contentForm fieldset {
+	min-width: 0;
+}
