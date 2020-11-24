@@ -9,3 +9,4 @@ build
 /queries.txt
 /build-IDE.xml
 /gradle.properties
+/.idea/

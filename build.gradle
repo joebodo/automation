@@ -27,7 +27,7 @@ task antCleanAll(group: 'build', description: 'ant clean all') {
 
 // ./gradlew -DgroovyScript=index-update-b2b.groovy runScript
 task runScript(group: 'misc', type: HacGroovyTask, description: 'Run a groovy script') {
-	script System.getProperty("groovyScript");
+	script System.getProperty("groovyScript")
 	settings hac_settings
 }
 
