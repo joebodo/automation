@@ -26,3 +26,8 @@ Drop groovy scripts into the scripts folder and a corresponding gradle task will
 <img src="https://github.com/joebodo/automation/raw/main/.assets/iTool.jpg?raw=true" width="300" height="318">
 <img src="https://github.com/joebodo/automation/raw/main/.assets/iRun.jpg?raw=true" width="300" height="410">
 </p>
+
+####Hac customizations
+
+<img src="https://github.com/joebodo/automation/raw/main/.assets/hac.jpg?raw=true" width="530" height="316">
+
