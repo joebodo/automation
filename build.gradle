@@ -1,8 +1,10 @@
 import automation.HacGroovyTask
 import groovy.io.FileType
 
-ant.'ant.home' = ant_home
-ant.properties["ant.version"] = ant_home
+def antHome = "$platform_home/apache-ant"
+
+ant.'ant.home' = antHome
+ant.properties["ant.version"] = antHome
 
 task antAll(group: 'build', description: 'ant all') {
 	doFirst {
