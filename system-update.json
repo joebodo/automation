@@ -1,0 +1,6 @@
+{
+	"init": "Go",
+	"initmethod": "update",
+	"localizetypes": "true",
+	"filteredPatches": "true"
+}
