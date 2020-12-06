@@ -40,8 +40,11 @@ $(document).ready(function() {
     });
     $('#deleteButton').click(function(){
         deleteScript();
-    });
-	$("#textarea-container").resizable().height("500px").width("100%");
+	});
+
+	var tch = Math.max($(window).height()  - 400, 200);
+
+	$("#textarea-container").resizable().height(tch).width("100%");
 	editor = CodeMirror.fromTextArea(document.getElementById("script"), {
 		mode: "text/x-groovy",
 		lineNumbers: true,
