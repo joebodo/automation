@@ -20,7 +20,9 @@ $(function() {
 	historyMax = $("#tabs-5").attr("historyMax");
 	cookiePath = $("#tabs-5").attr("cookiePath");
 	
-	$("#flexibleSearchQueryWrapper").resizable().height("500px").width("100%");
+	var tch = Math.max($(window).height()  - 400, 200);
+
+	$("#flexibleSearchQueryWrapper").resizable().height(tch).width("100%");
 	fsQueryEditor = CodeMirror.fromTextArea(document.getElementById("flexibleSearchQuery"), {
 		mode: "text/x-sql",
 		lineNumbers: false,
@@ -28,7 +30,7 @@ $(function() {
 		autofocus: true
 	});
 	
-	$("#sqlQueryWrapper").resizable().height("500px").width("100%");
+	$("#sqlQueryWrapper").resizable().height(tch).width("100%");
 	sqlQueryEditor = CodeMirror.fromTextArea(document.getElementById("sqlQuery"), {
 		mode: "text/x-sql",
 		lineNumbers: false,
