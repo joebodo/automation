@@ -26,7 +26,7 @@ $(function() {
 		mouseY = e.pageY;
 	});
 	
-	var tch = Math.max($(window).height()  - 400, 200);
+	var tch = Math.max($(window).height()  - 450, 200);
 	$("#textarea-container").resizable().height(tch).width("auto");
 	
 	CodeMirror.commands.autocomplete = function(cm) {
