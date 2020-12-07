@@ -20,7 +20,7 @@ $(function() {
 	historyMax = $("#tabs-5").attr("historyMax");
 	cookiePath = $("#tabs-5").attr("cookiePath");
 	
-	var tch = Math.max($(window).height()  - 400, 200);
+	var tch = Math.max($(window).height()  - 450, 200);
 
 	$("#flexibleSearchQueryWrapper").resizable().height(tch).width("100%");
 	fsQueryEditor = CodeMirror.fromTextArea(document.getElementById("flexibleSearchQuery"), {
