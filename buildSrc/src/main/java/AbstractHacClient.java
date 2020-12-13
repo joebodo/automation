@@ -115,7 +115,7 @@ public abstract class AbstractHacClient {
 			}
 			return createErrorResponse("Unable to obtain csrfToken for sessionId=" + sessionId);
 		}
-		HttpClient client = createAllowAllClient(6000L);
+		HttpClient client = createAllowAllClient(600000L);
 		if (client == null) {
 			return createErrorResponse("Unable to create HttpClient");
 		}
