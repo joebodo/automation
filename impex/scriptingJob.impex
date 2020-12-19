@@ -1,0 +1,11 @@
+# Create a scratch scripting cronjob
+# Replace contents of script in backoffice
+
+INSERT_UPDATE Script ; code[unique=true] ; scriptType(code) ; content                                  
+                     ; groovyScript      ; GROOVY           ; replace content in backoffice after load 
+                     
+INSERT_UPDATE ScriptingJob ; code[unique=true] ; scriptURI            
+                           ; groovyScriptJob   ; model://groovyScript 
+                           
+INSERT_UPDATE CronJob ; code[unique=true]   ; job(code)       ; sessionLanguage(isocode) ; sessionUser(uid) 
+                      ; groovyScriptCronJob ; groovyScriptJob ; en                       ; admin            

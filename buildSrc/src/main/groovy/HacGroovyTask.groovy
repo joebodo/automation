@@ -1,4 +1,4 @@
-package automation;
+package automation
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
@@ -38,15 +38,15 @@ class HacGroovyTask extends DefaultTask {
 		def result = hac.scripting().execute(script)
 
 		if (result.outputText) {
-			println "\nOutput--------------"
+			println '\nOutput--------------'
 			println result.outputText
 		}
 		if (result.stacktraceText) {
-			println "\nStacktrace----------"
+			println '\nStacktrace----------'
 			println result.stacktraceText
 		}
 		if (result.executionResult) {
-			println "\nResult--------------"
+			println '\nResult--------------'
 			println result.executionResult
 		}
 	}

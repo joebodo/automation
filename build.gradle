@@ -1,4 +1,5 @@
 import automation.HacGroovyTask
+import automation.HacImpexTask
 import groovy.io.FileType
 
 def antHome = "$platform_home/apache-ant"
@@ -27,9 +28,15 @@ task antCleanAll(group: 'build', description: 'ant clean all') {
 	}
 }
 
-// ./gradlew -DgroovyScript=index-update-b2b.groovy runScript
+// ./gradlew -DgroovyScript=/path/to/file.groovy runScript
 task runScript(group: 'misc', type: HacGroovyTask, description: 'Run a groovy script') {
 	script System.getProperty("groovyScript")
+	settings hac_settings
+}
+
+// ./gradlew -Dimpex=/path/to/file.impex importImpex
+task importImpex(group: 'misc', type: HacImpexTask, description: 'import an impex') {
+	impex System.getProperty("impex")
 	settings hac_settings
 }
 
