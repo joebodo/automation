@@ -71,7 +71,7 @@ class HacImpexTask extends DefaultTask {
 				.script(impexScript)
 				.build()
 
-		//script.commit = true
+		script.commit = true
 
 		def result = hac.scripting().execute(script)
 
