@@ -6,6 +6,7 @@ def antHome = "$platform_home/apache-ant"
 
 ant.'ant.home' = antHome
 ant.properties["ant.version"] = antHome
+ant.lifecycleLogLevel = "INFO"
 
 task antAll(group: 'build', description: 'ant all') {
 	doFirst {

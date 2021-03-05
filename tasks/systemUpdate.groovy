@@ -6,6 +6,7 @@ task systemUpdate(group: 'update', description: 'system update') {
 
 		assert file(configFile).exists(), 'produce a system update file from hac'
 
+		ant.lifecycleLogLevel = "INFO"
 		ant.properties['tenant'] = 'master'
 		ant.properties['configFile'] = configFile
 		ant.ant antfile: 'build.xml', target: 'updatesystem', dir: platform_home
