@@ -2,6 +2,8 @@ import automation.HacGroovyTask
 import automation.HacImpexTask
 import groovy.io.FileType
 
+gradle.startParameter.showStacktrace = org.gradle.api.logging.configuration.ShowStacktrace.ALWAYS
+
 def antHome = "$platform_home/apache-ant"
 
 ant.'ant.home' = antHome
