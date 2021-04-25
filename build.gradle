@@ -7,8 +7,8 @@ gradle.startParameter.showStacktrace = org.gradle.api.logging.configuration.Show
 def antHome = "$platform_home/apache-ant"
 
 ant.'ant.home' = antHome
-ant.properties["ant.version"] = antHome
 ant.lifecycleLogLevel = "INFO"
+ant.properties["env.ANT_OPTS"] = "-Xmx2g -XX:MaxPermSize=400m -Dfile.encoding=UTF-8"
 
 task antAll(group: 'build', description: 'ant all') {
 	doFirst {

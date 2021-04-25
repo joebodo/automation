@@ -1,0 +1,2 @@
+INSERT_UPDATE RemoveCatalogVersionCronJob ; code[unique=true]       ; job(code)                          ; catalog(id) ; sessionLanguage(isocode) ;  
+                                          ; RemoveCatalogVersionJob ; removeCatalogVersionJobPerformable ; Default     ; en                       
