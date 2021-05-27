@@ -31,6 +31,18 @@ task antCleanAll(group: 'build', description: 'ant clean all') {
 	}
 }
 
+// ./gradlew -DclassName=com.example.test testClass
+task testClass(group: 'misc', type: automation.HacTestingTask, description: 'Execute test for class') {
+	className System.getProperty("className")
+	settings hac_settings
+}
+
+// ./gradlew -DclassName=com.example.test logEnable
+task logEnable(group: 'misc', type: automation.HacLoggingTask, description: 'Debug logging for class') {
+	className System.getProperty("className")
+	settings hac_settings
+}
+
 // ./gradlew -DgroovyScript=/path/to/file.groovy runScript
 task runScript(group: 'misc', type: HacGroovyTask, description: 'Run a groovy script') {
 	script System.getProperty("groovyScript")
