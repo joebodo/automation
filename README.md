@@ -3,15 +3,32 @@
 Automation is a gradle project to help automate all things when working with a hybris project. Easily create custom tasks and groovy scripts for your specific project. Just create a fork for your project and add/update scripts to automate various tasks in the project.
 
 ## Setup
-clone project
+1. clone project from your home directory
+    ```
+	cd ~
+	git clone https://github.com/joebodo/automation.git
+    ```
+   This will create, for example: /Users/bob/automation
 
-copy gradle.properties-EXAMPLE to gradle.properties
+2. copy gradle.properties-EXAMPLE to gradle.properties
 
-edit gradle.properties to include correct paths
+3. edit gradle.properties to include correct paths
 
-In Intellij, click File -> New -> Module from existing sources...
+4. In Intellij, click File -> New -> Module from existing sources...
 
-select the automation project and select Gradle when prompted.
+    select the automation project and select Gradle when prompted.
+
+5. For toolbar buttons, external tool setup:
+
+    File -> Manage IDE Settings -> Import settings
+
+    Select the intellij-settings.zip in the automation folder
+
+## Key features
+* Run groovy scripts from IDE
+* Enable logging for class open in Editor
+* Run integration test for class open in Editor
+* Easily add scripts for repetitive tasks  (ie. running a cronjob)
 
 ## Custom tasks
 Custom tasks can be added in the tasks folder. Custom tasks can invoke shell scripts, ant targets, etc.
@@ -26,18 +43,7 @@ Drop groovy scripts into the scripts folder and a corresponding gradle task will
 <img src="https://github.com/joebodo/automation/raw/main/.assets/scripts.jpg?raw=true" width="313" height="390">
 </p>
 
-## Run arbitrary groovy script in Hac
-Program: Select the gradlew command from the automation project
-
-Arguments: -DgroovyScript=$FilePath$ runScript
-
-Uncheck: Synchronize files after execution
-
-<p float="left">
-<img src="https://github.com/joebodo/automation/raw/main/.assets/iTool.jpg?raw=true" width="300" height="318">
-<img src="https://github.com/joebodo/automation/raw/main/.assets/iRun.jpg?raw=true" width="300" height="410">
-</p>
-
-## Hac customizations 
+## Hac customizations (optional)
+Run the misc->CustomizeHac to apply the customizations seen here
 <img src="https://github.com/joebodo/automation/raw/main/.assets/hac.jpg?raw=true" width="530" height="316">
 
