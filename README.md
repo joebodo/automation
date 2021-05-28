@@ -4,13 +4,16 @@ Automation is a gradle project to help automate all things when working with a h
 
 ## Setup
 1. clone project from your home directory
-    ```
-	cd ~
-	git clone https://github.com/joebodo/automation.git
-    ```
+
+		cd ~
+		git clone https://github.com/joebodo/automation.git
+
    This will create, for example: /Users/bob/automation
 
 2. copy gradle.properties-EXAMPLE to gradle.properties
+
+		cd automation
+		cp gradle.properties-EXAMPLE gradle.properties
 
 3. edit gradle.properties to include correct paths
 
@@ -38,12 +41,9 @@ Groovy scripts are sent and executed in Hac.
 
 Drop groovy scripts into the scripts folder and a corresponding gradle task will be created.
 
-<p float="left">
-<img src="https://github.com/joebodo/automation/raw/main/.assets/tasks.jpg?raw=true" width="313" height="390">
-<img src="https://github.com/joebodo/automation/raw/main/.assets/scripts.jpg?raw=true" width="313" height="390">
-</p>
+![Tasks](.assets/tasks.jpg) ![Scripts](.assets/scripts.jpg)
 
 ## Hac customizations (optional)
 Run the misc->CustomizeHac to apply the customizations seen here
-<img src="https://github.com/joebodo/automation/raw/main/.assets/hac.jpg?raw=true" width="530" height="316">
 
+![Tasks](.assets/hac.jpg)
