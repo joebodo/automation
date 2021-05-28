@@ -46,4 +46,4 @@ Drop groovy scripts into the scripts folder and a corresponding gradle task will
 ## Hac customizations (optional)
 Run the misc->CustomizeHac to apply the customizations seen here
 
-![Tasks](.assets/hac.jpg)
+![HAC](.assets/hac.jpg)
