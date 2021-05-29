@@ -56,18 +56,46 @@ task importImpex(group: 'misc', type: HacImpexTask, description: 'import an impe
 }
 
 // Add all files in the scripts directory as a task
-File scripts = new File(project.rootDir.toString() + "/scripts")
-scripts.eachFileRecurse FileType.FILES,  { file ->
-	def name = file.name.take(file.name.lastIndexOf('.'))
+def loadScripts(dir) {
+	File scripts = new File(dir)
+	scripts.eachFileRecurse FileType.FILES, { file ->
+		def name = file.name.take(file.name.lastIndexOf('.'))
 
-	tasks.create(name: "$name", group: file.parentFile.name, type: HacGroovyTask) {
-		script "$file"
-		settings hac_settings
+		if (!name.startsWith('_')) {
+			tasks.create(name: "$name", group: file.parentFile.name, type: HacGroovyTask) {
+				script "$file"
+				settings hac_settings
+			}
+		}
 	}
 }
+loadScripts(project.rootDir.toString() + "/scripts")
 
 // https://blog.mrhaki.com/2015/10/gradle-goodness-apply-external-script.html
 File extTasks = new File(project.rootDir.toString() + "/tasks")
-extTasks.eachFileRecurse FileType.FILES,  { file ->
+extTasks.eachFileRecurse FileType.FILES, { file ->
 	apply from: "$file"
+}
+
+// Load user files
+if (project.hasProperty("user_files")) {
+
+	File userDir = new File(user_files)
+	if (!userDir.exists()) {
+		throw new GradleException('user_files location does not exist')
+	}
+
+	File userTasks = new File("$user_files/tasks")
+	if (!userTasks.exists()) {
+		userTasks.mkdir()
+	}
+	userTasks.eachFileRecurse FileType.FILES, { file ->
+		apply from: "$file"
+	}
+
+	File userScripts = new File("$user_files/scripts")
+	if (!userScripts.exists()) {
+		userScripts.mkdir()
+	}
+	loadScripts("$user_files/scripts")
 }

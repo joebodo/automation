@@ -1,8 +1,14 @@
+# PLATFORM DIR
 platform_home=/Users/joebodo/work/workspace-southwire/southwire/hybris/bin/platform
-hac_settings=https://localhost:9002/hac/;admin;nimda
 
-# if running webpack, etc  - required but only set if needed
-storefront_home=/Users/joebodo/work/workspace-southwire/southwire/hybris/bin/custom/southwire/southwireb2cstorefront
+
+# HAC URL/LOGIN
+hac_settings=https://localhost:9002/hac;admin;nimda
+
+
+# OPTIONAL -- LOCATION FOR USER SCRIPTS (directory must exist)
+user_files=/Users/joebodo/work/workspace-southwire/southwire/hybris/bin/custom/southwire/southwireinitialdata/automation
+
 
 # alternate way to specify jdk
 #org.gradle.java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home

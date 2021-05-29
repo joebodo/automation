@@ -1,6 +1,6 @@
-def code = 'delete-southwireB2CIndex-cronJob'
+def code = sampleCronjobName'
 
 def cronjob = cronJobService.getCronJob(code)
 cronJobService.performCronJob(cronjob, false)
 
-return 'started delete index'
+return 'started sample cronjob'

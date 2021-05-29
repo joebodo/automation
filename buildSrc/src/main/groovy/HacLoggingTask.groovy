@@ -11,10 +11,10 @@ import com.sap.hybris.hac.scripting.ScriptType
 class HacLoggingTask extends DefaultTask {
 
 	@Input
-	String className = '<none>'
+	String className
 
 	@Input
-	String settings = 'http://localhost:9001/hac;admin;nimda'
+	String settings
 
 	@TaskAction
 	def postScript() {

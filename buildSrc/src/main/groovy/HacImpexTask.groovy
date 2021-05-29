@@ -16,10 +16,10 @@ import com.sap.hybris.hac.scripting.ScriptType
 class HacImpexTask extends DefaultTask {
 
 	@Input
-	String impex = '<none>'
+	String impex
 
 	@Input
-	String settings = 'http://localhost:9001/hac;admin;nimda'
+	String settings
 
 	@TaskAction
 	def postScript() {
