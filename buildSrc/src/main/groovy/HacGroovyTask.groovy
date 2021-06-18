@@ -16,7 +16,7 @@ class HacGroovyTask extends DefaultTask {
 	String script = '<none>'
 
 	@Input
-	String settings = 'https://localhost:9002/hac;admin;nimda'
+	String settings = '<none>'
 
 	@TaskAction
 	def postScript() {

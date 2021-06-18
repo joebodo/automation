@@ -61,7 +61,8 @@ def loadScripts(dir) {
 	scripts.eachFileRecurse FileType.FILES, { file ->
 		def name = file.name.take(file.name.lastIndexOf('.'))
 
-		if (!name.startsWith('_')) {
+		if (name && !(name.startsWith('_') || name.startsWith('.'))) {
+			println "Adding task: $name"
 			tasks.create(name: "$name", group: file.parentFile.name, type: HacGroovyTask) {
 				script "$file"
 				settings hac_settings
@@ -74,7 +75,10 @@ loadScripts(project.rootDir.toString() + "/scripts")
 // https://blog.mrhaki.com/2015/10/gradle-goodness-apply-external-script.html
 File extTasks = new File(project.rootDir.toString() + "/tasks")
 extTasks.eachFileRecurse FileType.FILES, { file ->
-	apply from: "$file"
+	if (file && !(file.name.startsWith('.') || file.name.startsWith('_'))) {
+		println "Adding script: $file"
+		apply from: "$file"
+	}
 }
 
 // Load user files
