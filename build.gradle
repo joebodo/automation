@@ -32,25 +32,25 @@ task antCleanAll(group: 'build', description: 'ant clean all') {
 }
 
 // ./gradlew -DclassName=com.example.test testClass
-task testClass(group: 'misc', type: automation.HacTestingTask, description: 'Execute test for class') {
+task testClass(type: automation.HacTestingTask, description: 'Execute test for class') {
 	className System.getProperty("className")
 	settings hac_settings
 }
 
 // ./gradlew -DclassName=com.example.test logEnable
-task logEnable(group: 'misc', type: automation.HacLoggingTask, description: 'Debug logging for class') {
+task logEnable(type: automation.HacLoggingTask, description: 'Debug logging for class') {
 	className System.getProperty("className")
 	settings hac_settings
 }
 
 // ./gradlew -DgroovyScript=/path/to/file.groovy runScript
-task runScript(group: 'misc', type: HacGroovyTask, description: 'Run a groovy script') {
+task runScript(type: HacGroovyTask, description: 'Run a groovy script') {
 	script System.getProperty("groovyScript")
 	settings hac_settings
 }
 
 // ./gradlew -Dimpex=/path/to/file.impex importImpex
-task importImpex(group: 'misc', type: HacImpexTask, description: 'import an impex') {
+task importImpex(type: HacImpexTask, description: 'import an impex') {
 	impex System.getProperty("impex")
 	settings hac_settings
 }

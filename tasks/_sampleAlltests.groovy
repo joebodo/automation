@@ -4,7 +4,7 @@ task allTests(group: 'test', type: Exec, description: 'all tests') {
 
 	def cmd = [ "$platform_home/apache-ant/bin/ant",
 				'alltests',
-				'-Dtestclasses.packages=com.southwire.*' ]
+				'-Dtestclasses.packages=com.southwire.sap.orderfulfillment.*,com.southwire.upsintegration.*' ]
 
 	workingDir platform_home
 	environment('JAVA_HOME', org.gradle.internal.jvm.Jvm.current().getJavaHome())
