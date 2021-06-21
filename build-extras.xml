@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Cannot spawn tasks from gradle wtf -->
+
+<project name="automation">
+
+	<property file="gradle.properties" />
+
+	<target name="webpack-watch" description="Webpack watch">
+		<exec dir="${storefront_home}" command="npx webpack --watch" failonerror="true" />
+	</target>
+
+	<target name="fakeSMTP" description="FakeSMTP">
+		<exec command="java -jar .assets/fakeSMTP-2.0.jar -p 2525 -s" failonerror="true" />
+	</target>
+
+</project>

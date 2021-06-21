@@ -7,6 +7,5 @@ build
 /unused/
 /scratch.impex
 /queries.txt
-/build-IDE.xml
 /gradle.properties
 /.idea/
