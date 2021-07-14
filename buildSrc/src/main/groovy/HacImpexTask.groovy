@@ -28,11 +28,14 @@ class HacImpexTask extends DefaultTask {
 			import de.hybris.platform.servicelayer.impex.ImportConfig
 			import de.hybris.platform.servicelayer.impex.ImportConfig.ValidationMode
 			import de.hybris.platform.servicelayer.impex.impl.StreamBasedImpExResource
+			import org.apache.log4j.Logger
+
+			def logger = Logger.getLogger('impexImporter')
 
 			def bytes = new File("%s").bytes
 
 			def config = new ImportConfig().with {
-				maxThreads = 1
+				maxThreads = 8
 				synchronous = true
 				legacyMode = false
 				enableCodeExecution = false
@@ -42,20 +45,25 @@ class HacImpexTask extends DefaultTask {
 				it
 			}
 
+			// bust out of transaction to use maxThreads
+			def tx = de.hybris.platform.tx.Transaction.current();
+			if (tx.isRunning()) {
+				tx.commit()
+			}
+
 			def importResult = importService.importData(config)
 
 			if (importResult.hasUnresolvedLines()) {
-				println new String(mediaService.getDataFromMedia(importResult.unresolvedLines))
+				def lines = new String(mediaService.getDataFromMedia(importResult.unresolvedLines))
+				logger.warn "Unresolved lines: $lines"
 			}
 
 			if (importResult.cronJob && importResult.cronJob.logText) {
-				println new String(importResult.getCronJob().logText)
+				logger.warn new String(importResult.getCronJob().logText)
 			}
 
-			if (importResult.successful) {
-				println "Import successful"
-			} else {
-				println "Import finished with errors"
+			if (!importResult.successful) {
+				logger.error "Import finished with errors"
 			}
 		'''
 

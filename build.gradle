@@ -62,7 +62,7 @@ def loadScripts(dir) {
 		def name = file.name.take(file.name.lastIndexOf('.'))
 
 		if (name && !(name.startsWith('_') || name.startsWith('.'))) {
-			println "Adding task: $name"
+			// println "Adding task: $name"
 			tasks.create(name: "$name", group: file.parentFile.name, type: HacGroovyTask) {
 				script "$file"
 				settings hac_settings
@@ -76,7 +76,7 @@ loadScripts(project.rootDir.toString() + "/scripts")
 File extTasks = new File(project.rootDir.toString() + "/tasks")
 extTasks.eachFileRecurse FileType.FILES, { file ->
 	if (file && !(file.name.startsWith('.') || file.name.startsWith('_'))) {
-		println "Adding script: $file"
+		// println "Adding script: $file"
 		apply from: "$file"
 	}
 }

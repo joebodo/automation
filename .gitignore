@@ -9,3 +9,4 @@ build
 /queries.txt
 /gradle.properties
 /.idea/
+/received-emails/

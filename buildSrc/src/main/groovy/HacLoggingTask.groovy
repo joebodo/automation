@@ -20,10 +20,18 @@ class HacLoggingTask extends DefaultTask {
 	def postScript() {
 
 		def template = '''
-			import de.hybris.platform.hac.facade.HacLog4JFacade
-			import org.apache.logging.log4j.*
+			def facade = new de.hybris.platform.hac.facade.HacLog4JFacade()
 
-			new HacLog4JFacade().changeLogLevel("%s", "DEBUG")
+			def logClass = '%s'
+			def loggers = facade.getLoggers()
+			def existing = loggers.find { it.name == logClass }
+
+			def level = existing ? existing.effectiveLevel.name : 'OFF'
+			def flipped = level == "OFF" ? "DEBUG" : "OFF"
+
+			facade.changeLogLevel(logClass, flipped)
+
+			println "$logClass -> $flipped"
 		'''
 
 		def (url, username, password) = settings.tokenize(';')
