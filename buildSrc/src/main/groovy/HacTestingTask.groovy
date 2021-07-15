@@ -7,6 +7,7 @@ import com.sap.hybris.hac.Configuration
 import com.sap.hybris.hac.HybrisAdministrationConsole
 import com.sap.hybris.hac.scripting.Script
 import com.sap.hybris.hac.scripting.ScriptType
+import com.automation.ScriptRunner
 
 class HacTestingTask extends DefaultTask {
 
@@ -55,7 +56,7 @@ class HacTestingTask extends DefaultTask {
 
 		println "Executing test for $className"
 
-		def result = hac.scripting().execute(script)
+		def result = ScriptRunner.execute(hac, script)
 
 		if (result.outputText) {
 			println '\nOutput--------------'

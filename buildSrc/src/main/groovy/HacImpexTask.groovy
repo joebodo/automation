@@ -7,6 +7,7 @@ import com.sap.hybris.hac.Configuration
 import com.sap.hybris.hac.HybrisAdministrationConsole
 import com.sap.hybris.hac.scripting.Script
 import com.sap.hybris.hac.scripting.ScriptType
+import com.automation.ScriptRunner
 
 // alternative way to load **LOCAL** impex files
 // useful for large files that cannot be loaded via hac
@@ -30,7 +31,7 @@ class HacImpexTask extends DefaultTask {
 			import de.hybris.platform.servicelayer.impex.impl.StreamBasedImpExResource
 			import org.apache.log4j.Logger
 
-			def logger = Logger.getLogger('impexImporter')
+			def logger = Logger.getLogger('automation')
 
 			def bytes = new File("%s").bytes
 
@@ -81,7 +82,7 @@ class HacImpexTask extends DefaultTask {
 
 		script.commit = true
 
-		def result = hac.scripting().execute(script)
+		def result = ScriptRunner.execute(hac, script)
 
 		if (result.outputText) {
 			println '\nOutput--------------'

@@ -1,4 +1,4 @@
-task customizeHac(group: 'misc', description: 'customize Hac') {
+task customizeHac(group: 'setup', description: 'customize Hac') {
 	doFirst {
 		copy {
 			from "${project.rootDir}/customize"

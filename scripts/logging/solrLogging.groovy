@@ -1,8 +1,7 @@
 def toggle(logClass) {
 	def facade = new de.hybris.platform.hac.facade.HacLog4JFacade()
 
-	def loggers = facade.getLoggers()
-	def existing = loggers.find { it.name == logClass }
+	def existing = facade.loggers.find { it.name == logClass }
 
 	def level = existing ? existing.effectiveLevel.name : 'OFF'
 	def flipped = level == "OFF" ? "DEBUG" : "OFF"

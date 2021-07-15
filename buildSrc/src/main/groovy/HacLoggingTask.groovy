@@ -7,6 +7,7 @@ import com.sap.hybris.hac.Configuration
 import com.sap.hybris.hac.HybrisAdministrationConsole
 import com.sap.hybris.hac.scripting.Script
 import com.sap.hybris.hac.scripting.ScriptType
+import com.automation.ScriptRunner
 
 class HacLoggingTask extends DefaultTask {
 
@@ -50,7 +51,7 @@ class HacLoggingTask extends DefaultTask {
 
 		println "Enabling logging for $className"
 
-		def result = hac.scripting().execute(script)
+		def result = ScriptRunner.execute(hac, script)
 
 		if (result.outputText) {
 			println '\nOutput--------------'

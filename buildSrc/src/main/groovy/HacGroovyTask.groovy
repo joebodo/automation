@@ -7,6 +7,7 @@ import com.sap.hybris.hac.Configuration
 import com.sap.hybris.hac.HybrisAdministrationConsole
 import com.sap.hybris.hac.scripting.Script
 import com.sap.hybris.hac.scripting.ScriptType
+import com.automation.ScriptRunner
 
 // See: https://github.com/klaushauschild1984/jhac
 
@@ -35,7 +36,7 @@ class HacGroovyTask extends DefaultTask {
 
 		script.commit = true
 
-		def result = hac.scripting().execute(script)
+		def result = ScriptRunner.execute(hac, script)
 
 		if (result.outputText) {
 			println '\nOutput--------------'
