@@ -528,7 +528,7 @@ header {
 
 header {
 	position: relative;
-	height: 125px;
+	height: 100px;
 	background: url("../img/bodyBG.gif") repeat-x scroll 0 0 #4B5367;
 }
 
@@ -651,8 +651,6 @@ ul.ui-autocomplete {
 
 #logo {
 	position: absolute;
-	top: 8px;
-	left: -4px;
 }
 
 #notification {
@@ -681,16 +679,10 @@ nav.topnavigation ul li a:focus {
 	display: none;
 	font-size: smaller;
 	position: absolute;
-	bottom: -50px;
-	height: 50px;
+	bottom: -40px;
+	height: 40px;
 	background: rgb(108, 117, 132); /*ie8*/
 	background: rgba(108, 117, 132, 1);
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.02, rgb(75, 87, 106) ),
-		color-stop(0.51, rgb(108, 117, 132) ) );
-	background-image: -moz-linear-gradient(center bottom, rgb(75, 87, 106) 2%, rgb(108, 117, 132) 51% );
-	z-index: 1;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-	box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
 }
 
 .subnavigation ul {
@@ -834,6 +826,17 @@ footer a:hover,#footer a:active {
 
 .paginate_enabled_next,.paginate_enabled_previous {
 	cursor: pointer;
+}
+
+div.prepend-top {
+	transition: margin-top 0.1s ease;
+	margin-top: .25rem;
+}
+div.prepend-top h2 {
+	margin-bottom: .25rem;
+}
+div.prepend-top.lowered {
+	margin-top: 50px;
 }
 
 tbody tr.even td {
