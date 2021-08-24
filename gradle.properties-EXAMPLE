@@ -7,7 +7,7 @@ hac_settings=https://localhost:9002/hac;admin;nimda
 
 
 # OPTIONAL -- LOCATION FOR USER SCRIPTS (directory must exist)
-user_files=/Users/joebodo/work/workspace-southwire/southwire/hybris/bin/custom/southwire/southwireinitialdata/automation
+#user_files=/Users/joebodo/work/workspace-southwire/southwire/hybris/bin/custom/southwire/southwireinitialdata/automation
 
 
 # alternate way to specify jdk
